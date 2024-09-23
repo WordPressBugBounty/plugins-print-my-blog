@@ -1,0 +1,264 @@
+/**
+* Styles for displaying the classic print-page with its hovering button etc.
+*
+*/
+
+@media print {
+
+    .pmb-waiting-message-fullpage{
+        display:none;
+    }
+    .pmb-preview-note{
+        display:none;
+    }
+}
+@media not print{
+    .pmb-posts#content{
+        display: none;
+        width: 1000px;
+        margin: 10em auto 0 auto;
+        box-shadow:0.5em 1em darkgray;
+        background-color:white;
+        border: 1px solid darkgray;
+        padding: 6em;
+    }
+
+    .pmb-posts img{
+        max-width:100%;
+    }
+
+    body.pmb-print-page{
+        background-color:lightgray;
+        background-image:none;
+    }
+}
+
+.pmb-waiting-message-fullpage{
+    color:black;
+    z-index:1000;
+    position: fixed;
+    left: 50%;
+    top:0;
+    transform: translate(-50%, 32px);
+    width:25em;
+    max-width:96%;
+}
+
+.pmb-waiting-message-outer-container{
+    background-color:white;
+    box-shadow: 0.5em 1em darkgray;
+    border:1px solid darkgray;
+    padding-bottom: 1em;
+}
+
+.pmb-extra-content{
+    text-align:center;
+}
+
+.pmb-posts-placeholder{
+    /*position: fixed;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -2em);
+    */
+}
+
+button{
+    background-color:lightskyblue;
+}
+.print-preview-instructions ol{
+     text-align:left;
+     padding: 0 2em 0 2em;
+ }
+.pmb-error{
+    margin:1em;
+}
+.pmb-waiting-h1{
+    margin-top:1em;
+}
+.pmb-top{
+    position:absolute;
+    top:0;
+    right:0;
+    margin-top:5px;
+    margin-right:5px;
+}
+.pmb-help{
+    line-height:1em;
+    font-size:0.8em;
+    color:gray;
+}
+.pmb-help a{
+    color:lightblue;
+}
+.pmb-help a:hover{
+    color:blue;
+}
+
+.pmb-window-buttons{
+    position:absolute;
+    margin-top:5px;
+    margin-left:5px;
+}
+.pmb-top-left{
+    top:0;
+    left:0;
+}
+
+.pmb-print-ready{
+    visibility:hidden;
+}
+
+@media screen and (max-width: 782px) {
+    .pmb-waiting-message-fullpage{
+        transform: translate(-50%, 46px);
+    }
+}
+h1.pmb-waiting-h1{
+    color:black;
+}
+p.pmb-status{
+    color:black;
+}
+
+.pmb-preview-note{
+    position: fixed;
+    bottom:0;
+    left:0;
+    line-height:1em;
+    background-color:white;
+    opacity:0.5;
+    z-index:1000;
+    color:black;
+}
+
+/* Make sure the print button is clearly a pressable button; some themes style it as a block and so the cursor
+won't switch to a pointer when they hover over it; and it won't be centered anymore*/
+.pmb-waiting-message-outer-container input[type=submit]{
+    cursor:pointer;
+    /* In case the theme made the input display:block, use margins to center it.*/
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.pmb-small-instructions{
+    line-height:1em;
+    font-size:0.8em;
+    color:gray;
+}
+
+.site-title {
+    margin-top: 0em;
+    padding-top: 0em;
+    float: none;
+}
+
+/*
+* WP Block galleries use display:flex which is great for the screen but very bad for printed, paged media as the
+* content gets cut off after the 1st page. Use ye old block display instead.
+*/
+.pmb-posts .wp-block-gallery, .pmb-posts .block-gallery-grid{
+    overflow:visible;
+    display:block;
+}
+.pmb-posts .wp-block-gallery>ul{
+    display:block;
+}
+
+.pmb-posts .wp-block-gallery img{
+    height:100%;
+}
+/**
+If its a cropped gallery, make the images full width,
+auto-height, and chopped off at the bottom
+ */
+.pmb-posts .wp-block-gallery.is-cropped>ul>li{
+    height:300px;
+}
+.pmb-posts .wp-block-gallery.is-cropped figure{
+    width:100%;
+    height:100%;
+}
+
+.pmb-posts .wp-block-gallery.is-cropped img{
+    height:auto;
+    width:100%;
+}
+
+/**
+The calc() function done by WP doesn't seem to work with Prince.
+So instead just aim for filling up 90% of the width, and a similar
+height.
+ */
+.pmb-posts .wp-block-gallery.columns-2 .blocks-gallery-item{
+    width: 45%;
+    height: 300px;
+}
+.pmb-posts .wp-block-gallery.columns-3 .blocks-gallery-item{
+    width: 30%;
+    height: 200px;
+}
+
+.pmb-posts .wp-block-gallery.columns-4 .blocks-gallery-item{
+    width: 22.5%;
+    height: 150px;
+}
+
+.pmb-posts .wp-block-gallery.columns-5 .blocks-gallery-item{
+    width: 18%;
+    height: 100px;
+}
+
+.pmb-posts .wp-block-gallery.columns-6 .blocks-gallery-item{
+    width: 15%;
+    height: 80px;
+}
+
+.pmb-posts .blocks-gallery-grid .blocks-gallery-item{
+    display:inline-block;
+    page-break-inside:avoid;
+    vertical-align:top;
+    overflow:hidden;
+}
+.pmb-posts .blocks-gallery-grid .blocks-gallery-item figure{
+    display:block;
+    page-break-inside:avoid;
+}
+.pmb-posts .blocks-gallery-grid .blocks-gallery-item img{
+    margin-right: auto;
+    margin-left: auto;
+    height:100%;
+    page-break-inside: avoid;
+}
+/*
+Override the defautl style which adds some padding to the sides, which then makes it overflow
+because it also takes up 100% of the width.
+ */
+.pmb-posts .blocks-gallery-grid .blocks-gallery-item figcaption {
+    padding:40px 0 9px;
+}
+
+.pmb-print-page .wp-block-columns{
+    display:block;
+}
+.pmb-print-page .wp-block-column{
+    display:inline-block;
+}
+
+/**
+    This should go in plugin-compatibility.css, but it only applies to Quick Print, which I plan to remove soon. So
+    here it is.
+    LaText2Html (https://wordpress.org/plugins/latex2html/) strangely thinks it should set the page and body size.
+    Don't let it, or others, do that. See https://wordpress.org/support/topic/losing-all-formatting/
+*/
+@page {
+    size: initial;
+}
+
+/**
+ * Hide Elementor's table of contents in Quick Print only (it doesn't work because it needs JS that doesn't get loaded;
+ * but it works in Pro Print so leave it there)
+ */
+.pmb-posts div.elementor-toc__header, .pmb-posts div.elementor-toc__body{
+    display: none;
+}

@@ -1,0 +1,80 @@
+.blocks-gallery-grid{
+    list-style-type: none;
+}
+/* Elementor/WP includes inline CSS to the gallery that invalidly sets the gallery items to float even though
+they/re inline-block (which don't float) resulting in inconsistent handling in different browsers. This normalized it.
+*/
+.gallery-item{
+    display:inline-block;
+    float: none !important;
+}
+
+figure{
+    margin:0.5em 0 0.5em 0;
+    padding:0.5em 0 0.5em 0;
+    page-break-inside:avoid;
+}
+.wp-block-gallery ul{
+    margin:0;
+    padding-left:0;
+}
+.wp-block-gallery li{
+    margin:0;
+    padding-left:0;
+}
+ul, ol{
+    padding-left:1em;
+}
+blockquote{
+    margin-right:0;
+}
+div{
+    margin:0;
+    padding:0;
+}
+
+.aligncenter{
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    text-align: center;
+}
+
+/* On small screens, just center everything*/
+@media (min-width:500px){
+    .alignright{
+        float:right;
+        max-width:70%;
+    }
+    .alignleft{
+        float:left;
+        max-width:70%;
+    }
+}
+@media (max-width:499px){
+    .alignright, .alignleft{
+        margin-left:auto;
+        margin-right:auto;
+        display:table;
+    }
+}
+
+figure{
+    padding:1em;
+}
+
+/* Specific plugin compatibility */
+.elementor-image{
+    text-align:center;
+}
+.elementor-image img{
+    display:inline-block;
+}
+
+img{
+    /* If images get stacked, put at least a little space between them. */
+    padding-top:10px;
+    padding-bottom:10px;
+    /* Don't let images take up more space than their width. This especially helps with Elementor galleries in eReaders. */
+    max-width:100%;
+}

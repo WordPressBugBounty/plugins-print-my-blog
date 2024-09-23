@@ -1,0 +1,302 @@
+/* Only added to print pages, mostly hides content from the following plugins...*/
+/* Yuzo Related Posts */
+.pmb-posts .yuzo_related_post{
+    display:none;
+}
+/* I Recommend This */
+.pmb-posts .dot-irecommendthis{
+    display:none;
+}
+/* AdControl */
+.pmb-print-page #ac-top{
+    display:none;
+}
+/* JetPack's ShareDaddy content */
+.pmb-posts .sharedaddy{
+    display:none;
+}
+/* JetPack tiled galleries. When printing, we actually do need to show their backgrounds. */
+@media print {
+    .pmb-posts .tiled-gallery-caption {
+        background: #eee !important;
+        background: rgba(255, 255, 255, .8) !important;
+    }
+}
+
+/*
+* PowerPress https://wordpress.org/plugins/powerpress/
+* Don't show the play button as it doesn't work; instead link to it.
+ */
+.pmb-posts .powerpress_player{
+    display:none;
+}
+
+/* Prevents plugin https://www.tipsandtricks-hq.com/wordpress-audio-music-player-plugin-4556
+from adding a gray box in the footer when using Prince
+ */
+.pmb-posts #sm2movie {
+    display: none;
+}
+
+/*
+Video JS https://wordpress.org/plugins/videojs-html5-player/ Avoid having large videos break in the middle
+ */
+.pmb-posts .video-js{
+    width:100%;
+    height:auto;
+}
+
+/*
+Video.js https://wordpress.org/plugins/videojs-html5-video-player-for-wordpress/ Avoid page breaks inside videos
+ */
+.pmb-posts .video-wrapper{
+    page-break-inside:avoid;
+}
+
+/**
+Hide Google Recaptcha from printouts
+
+ */
+.pmb-posts .grecaptcha-badge{
+    display:none !important;
+}
+
+/**
+Hide footer added by user switching add-on.
+ */
+.pmb-print-page p#user_switching_switch_on{
+    display:none;
+}
+
+/* Show-Hide / Collapse-Expand plugin https://wordpress.org/plugins/show-hidecollapse-expand/
+hide the reveal buttons. Showing them needs to happen in JS though.*/
+.pmb-print-page .bg-showmore-plg-button{
+    display:none;
+}
+
+/* Hide TablePress'  "Edit" button https://wordpress.org/plugins/tablepress/*/
+.pmb-print-page .dataTables_wrapper caption{ display:none; }
+.pmb-print-page .dataTables_wrapper .dataTables_info{ display:none;}
+
+/* Hide TopBar https://wordpress.org/plugins/top-bar/ from printouts.
+Use !important to override the inline style set by the plugin*/
+#tpbr_topbar{
+    display:none !important;
+}
+
+/**
+Hide Google Recaptcha v3 from printouts. Like when using Contact Form 7
+ */
+.grecaptcha-badge{
+    display:none !important;
+}
+
+/**
+Hide CSS Hero's floating icon, SimpleBackToTop's icon
+ */
+#csshero-very-first-trigger, .sbttBacktotop{
+    display: none !important;
+}
+
+/**
+Lifter LMS
+Hide stuff that doesn't make sense in print
+ */
+.llms-course-navigation, .llms-lesson-button-wrapper {
+    display: none;
+}
+
+@media print{
+    /*
+    Don't let page content overflow into the bottom page margin
+     */
+    body.pmb-pro-print-pdf {
+        height: 100% !important;
+        width: initial !important;
+    }
+}
+
+/* Place NextGen gallery https://wordpress.org/plugins/nextgen-gallery/ items side-by-side */
+.ngg-gallery-thumbnail-box {
+    display:inline-block;
+}
+
+/*
+Hide WPML language selectors
+ */
+.wpml-ls{
+    display:none;
+}
+
+#ez-toc-container{
+    display:none;
+}
+
+/*
+ Hide Creative Minds table of contents. Its because when there are multiple of them on the same page
+ */
+#cmtoc_wrapper_id, .cmtoc-flbtn-container, .cmtoc_table_of_contents_wrapper{
+    display:none !important;
+}
+
+/**
+* Accessibility toolbar
+ */
+.a11y-toolbar{
+    display:none;
+}
+
+/**
+Hide Axeptio overlay https://support.axeptio.eu/hc/en-gb/articles/4404040521105-Install-Axeptio-on-your-website#h_01FEGV1GE4P9A1GJ6H7AH90T5B
+ */
+#axeptio_overlay{
+    display: none;
+}
+
+/**
+Hide GDPR Cookie Consent
+ */
+#cookie-law-info-bar{
+    display:none !important;
+}
+
+/**
+topbar plugin: https://wordpress.org/plugins/top-bar/
+ */
+#tpbr_topbar{
+    display:none;
+}
+/**
+Announcer plugin integration
+ */
+.ancr-sticky{
+    display:none;
+}
+
+/**
+Elementor.
+Turn its flexboxes into regular blocks so pagebreaks work better again
+ */
+.pmb-posts .elementor-row{
+    display:block;
+}
+
+.pmb-posts .elementor-section .elementor-container{
+    display:block;
+}
+
+/* Elementor invisible usually just hides things before showing them via an animation. But we have no animation. We want to just see the stuff.
+*/
+.pmb-posts .elementor-invisible{
+    visibility:visible;
+}
+/**
+ Flexbox stinks with Prince, so make Elementor columns take up the full width, and on the parent row we set "columns:x"
+ (according to the number of elementor column divs we counted using JS.)
+ */
+.pmb-posts .elementor-column{
+    display:block;
+    width:100%;
+}
+.pmb-posts .elementor:not(.elementor-bc-flex-widget) .elementor-widget-wrap, .pmb-posts .elementor:not(.elementor-bc-flex-widget) .elementor-column-wrap{
+    display:block;
+}
+
+/**
+ Supsystic tables. https://wordpress.org/plugins/data-tables-generator-by-supsystic/
+ Don't show the edit links
+ */
+.tblEditLink {
+    display: none !important;
+}
+/**
+ One-Click Accessibility Toolbar
+ */
+#pojo-a11y-toolbar{
+    display:none;
+}
+/**
+* Hide Google AdSense in printouts
+ */
+.pmb-posts .google-auto-placed{
+    display:none !important;
+}
+
+/**
+Hide Kadence Accordions' expand/collapse icon
+ */
+.kt-blocks-accordion-icon-trigger{
+    display:none !important;
+}
+
+/**
+Hide Orbit Fox sharing buttons
+ */
+.pmb-posts .obfx-sharing{
+    display:none;
+}
+/**
+Hide Hustle Slide-In
+ */
+.pmb-posts .hustle-slidein{
+    display:none !important;
+}
+
+/**
+ * WP Socializer
+ */
+.pmb-posts .wp-socializer{
+    display:none;
+}
+/**
+ * Post Like Dislike plugin
+ */
+.pmb-posts .pld-like-dislike-wrap{
+    display:none;
+}
+
+/**
+ * Hide overlays added by Popup maker: https://wordpress.org/plugins/popup-maker/
+ */
+.pum-overlay{
+    display:none;
+}
+/**
+Hide GTranslate dropdowns in content. See https://wordpress.org/plugins/gtranslate/
+ */
+.pmb-posts .gtranslate_wrapper{
+    display:none;
+}
+/**
+Hide Molongui empty divs, see https://www.molongui.com
+ */
+[data-m-brand="Molongui"]{
+    display:none;
+}
+/**
+Hide WP Popups. See https://wordpress.org/plugins/wp-popups-lite/
+ */
+.wppopups-whole{
+    display:none;
+}
+
+/* Events Manager */
+/* Hide the search options in print*/
+.search_events{
+    display:none !important;
+}
+/* For the calendar, don't use flexbox layout as it cuts images in half*/
+.wpem-event-listings.wpem-event-listing-box-view{
+    display:block !important;
+}
+.wpem-event-layout-wrapper{
+    break-inside:avoid !important;
+}
+.wpem-event-box-col{
+    width:100% !important;
+    max-width:100% !important;
+}
+/* For the calendar, make the titles just a bit smaller so they fit more snugly on a printed page. */
+.wpem-event-listings.wpem-event-listing-box-view .wpem-event-layout-wrapper .wpem-event-infomation .wpem-event-details .wpem-event-title .wpem-heading-text{
+    line-height:1 !important;
+}

@@ -1,0 +1,137 @@
+/* pagination */
+@media print, screen {
+    @page{
+        counter-reset: footnote;
+
+        @footnotes {
+            border-top: solid black thin;
+            padding-top: 8pt;
+        }
+    }
+    .pmb-title-page{
+        page:title-page;
+    }
+    .pmb-front-matter {
+        display: block;
+        page: front-matter;
+        counter-reset: page 1
+    }
+
+    @page front-matter {
+        /*@top {*/
+        /*    content: "Table of Contents"*/
+        /*}*/
+        @bottom-right {
+            content: counter(page, lower-roman)
+        }
+    }
+
+
+    .pmb-main-matter {
+        display: block;
+        page: main;
+        counter-reset: page 1
+    }
+    @page main {
+        @bottom-right {
+            content: counter(page)
+        }
+    }
+    body{
+        prince-footnote-policy: keep-with-line;
+        background:rgba(0,0,0,0);/* override how sometimes admin's CSS gets enqueued on ajax and sets the background color to gray. See https://core.trac.wordpress.org/ticket/53741 */
+    }
+
+    .pmb-back-matter{
+        page:back-matter;
+    }
+    @page back-matter{
+        @bottom-right {
+            content: counter(page);
+        }
+    }
+
+    /* General styles*/
+    body{
+        font-family:Times;
+    }
+    h1,h2,h3,h4,h5,h6{
+        font-family:Calibri;
+        page-break-after:avoid;
+        page-break-inside:avoid;
+    }
+
+
+
+    /* Title Page styles */
+    .pmb-title-page .project-title{
+        padding-top:1in;
+    }
+    .buurma-issue{
+        float:right;
+    }
+    .pmb-posts-header{
+        margin-top:2in;
+        text-align:left;
+    }
+    .project-title{
+        font-size:3em;
+    }
+    .project-byline{
+        font-size:2em;
+        font-weight: 200;
+        margin-top:4em;
+    }
+    .project-date{
+        margin-top:2em;
+        font-size:1.5em;
+    }
+    .project-description{
+        float:bottom;
+        page-break-after:always;
+    }
+
+
+    /* toc */
+    .pmb-toc-list li{
+        list-style:none;
+    }
+    .pmb-toc-item.pmb-toc-depth-2{
+        margin-left:1em;
+    }
+    .pmb-toc-list .pmb-toc-item.pmb-toc-front a::after {
+        content: leader('.') target-counter(attr(href), page, lower-roman) !important;
+    }
+    .pmb-toc-list .pmb-toc-item:not(.pmb-toc-front) a::after {
+        content: leader('.') target-counter(attr(href), page) !important;
+    }
+
+    /* Article styles */
+    .pmb-section h1.entry-title {
+        string-set: section-title content();
+    }
+
+    .pmb-section-wrapper:not(.pmb-first-section-wrapper){
+        break-before:page;
+    }
+
+    .pmb-posts span.pmb-footnote{
+        float:footnote;
+        text-align:left;
+        margin-left:0;
+        font-weight:normal;
+        text-indent:0;
+        font-size:1rem;
+        font-family:Times;
+    }
+}
+
+/*
+    Make the preview appear about the same size as in the PDF. Besides making the preview better,
+    Javascript code that's calculating element dimensions will be better too.
+*/
+@media not print{
+    .pmb-project-content{
+        width: calc(8.5in - 54pt - 54pt);
+    }
+}

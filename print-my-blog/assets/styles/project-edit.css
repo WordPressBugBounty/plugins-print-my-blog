@@ -1,0 +1,317 @@
+.pmb-project-layout-inner{
+    display:flex;
+    align-items:center;
+}
+
+.pmb-project-layout .pmb-project-column{
+    flex:1 1 0;
+    align-self:stretch;
+    height:80vh;
+    display:flex;
+    flex-direction:column;
+}
+.pmb-project-layout .pmb-actions-column{
+    flex:0 0 auto;
+    flex-direction:column;
+    margin:0 10px;
+    display:flex;
+    align-self:stretch;
+    justify-content: center;
+    height:80vh;
+    visibility: hidden;
+}
+
+.wp-core-ui .pmb-actions-column button{
+    margin-bottom:5px;
+    border-radius:2px;
+    background:#fff;
+    cursor:pointer;
+    font-size:12px;
+    padding:15px;
+    line-height:1;
+}
+.pmb-scrollable-window{
+    overflow-y:auto;
+    border:1px solid gray;
+}
+.pmb-draggable-area{
+    padding-bottom:40px;
+    position:relative;
+}
+
+.pmb-selected{
+    background: #ECF6FD;
+}
+.pmb-selected .pmb-project-item-options{
+    background: #ECF6FD;
+}
+
+.pmb-project-choices-column>h2{
+    flex-grow:0;
+}
+.pmb-search-bar{
+    display:flex;
+}
+.pmb-search-bar .pmb-search-input{
+    flex-grow:1;
+}
+.pmb-search-bar .button{
+    font-size:1.8em;
+    line-height:1.5em;
+    margin-bottom: 0!important;;
+}
+.wp-core-ui .button.pmb-filters-opened, .pmb-filters-opened{
+    display:none;
+}
+
+.pmb-project-choices-column .pmb-project-choices-filters{
+    flex-grow:1;
+    display:none;
+}
+.pmb-project-choices-filters-table-wrap{
+    padding:10px;
+}
+.pmb-filters-apply-bar .button {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5em;
+}
+
+.pmb-project-choices-column .pmb-project-content-available{
+    flex-grow:2;
+    overflow-y:auto;
+}
+.pmb-project-content-available-options{
+    display:flex;
+}
+.pmb-project-content-available-options .button{
+    flex-grow:1;
+    text-align:center;
+}
+.pmb-project-matters{
+    flex-grow:1;
+}
+
+.pmb-inline-header{
+    display:inline-block;
+}
+.pmb-snug-header{
+    margin-bottom:5px;
+}
+
+
+.pmb-grabbable{
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.pmb-grabbable:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+.pmb-project-choices-filters .form-table th{
+    width:100px;
+}
+.pmb-project-content-available{
+    vertical-align:top;
+}
+
+
+.pmb-project-item{
+    padding: 5px 0px 5px 10px;
+    margin-bottom:-1px;
+    border:1px solid #ddd;
+    position:relative;
+    display:block;
+
+}
+
+#pmb-project-main-matter>.pmb-project-item{
+    margin-right:20px
+}
+.pmb-project-item-options{
+    display:none;
+    position:absolute;
+    right:0;
+    top:0;
+    background:#F0F0F1;
+    z-index:1;
+}
+.form-group{
+    margin-bottom: 15px;
+}
+
+.form-group label{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.form-control{
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.list-group{
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+.pmb-comment{
+    margin-left:1em;
+}
+.pmb-use-ctrl-key{
+    visibility:hidden;
+}
+
+.pmb-project-content-chosen .pmb-nested-sortable{
+    /*border: 1px dotted gray;*/
+    margin: .5em 0 .5em 2em;
+}
+.pmb-sortable-inactive{
+    display:none;
+}
+.pmb-project-item-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.pmb-project-item-title{
+    flex-grow:1;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+    width:200px;
+    min-width: 150px
+}
+.pmb-project-item-type-container{
+    flex-shrink:0;
+}
+.pmb-drag-here{
+    text-align:center;
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:8px;
+}
+.pmb-drag-here a{
+    color:gray;
+}
+.pmb-drag-here a:hover{
+    color:#0073aa;
+}
+
+.pmb-add-material{
+    cursor:pointer;
+}
+.pmb-project-item-options{
+    display:none;
+    background:transparent;
+}
+.pmb-project-item-options-buttons{
+    background:#F0F0F1;
+    display:inline-block;
+}
+.pmb-selected .pmb-project-item-options-buttons{
+    background:#ECF6FD;
+}
+.pmb-project-item-options.pmb-show-options{
+    display:block;
+}
+.pmb-project-item-options-buttons .dashicons{
+    font-size:25px;
+    height:30px;
+    width:40px;
+}
+.pmb-add-material:link{
+    text-decoration: none;
+}
+.pmb-project-choices-column .pmb-project-item-template-container{
+    display:none;
+}
+.pmb-template{
+    width:150px;
+}
+.pmb-project-matters .pmb-add-item{
+    display:none;
+}
+.wp-core-ui .pmb-show-more div.load-more-button{
+    display:block;
+    text-align:center;
+}
+.pmb-no-results{
+    padding:8px;
+}
+.pmb-project-choices-filters input[type=text]{
+    width:90%;
+}
+.pmb-project-choices-filters select{
+    width:90%;
+}
+.pmb-button-spacer{
+    margin:1vh;
+}
+#pmb-save{
+    float:right;
+}
+
+.pmb-svg-icon{
+    float: left;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px auto;
+}
+@media (max-width: 766px){
+    .pmb-project-layout .pmb-actions-column{
+        display: flex;
+        position: fixed;
+        right: 0;
+        z-index: 10;
+        height:auto;
+        bottom:0;
+        flex-direction:row;
+    }
+
+    .pmb-project-layout .pmb-project-layout-inner{
+        flex-direction:column;
+    }
+    /* On mobile devices, leave a little room to scroll through items*/
+    .pmb-project-item, .wp-core-ui .button.load-more-button{
+        margin-right:20px;
+    }
+}
+@media (min-width: 766px){
+    .pmb-project-choices-column{
+        max-width:500px;
+    }
+}
+.pmb-project-item:focus-within{
+    color: #043959;
+    box-shadow: 0 0 0 1px #4f94d4, 0 0 2px 1px rgba(79, 148, 212, 0.8);
+    outline: 1px solid transparent;
+}
+.pmb-disabled-icon{
+    color:gray;
+    cursor:help;
+}

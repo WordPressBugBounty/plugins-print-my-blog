@@ -1,0 +1,266 @@
+/**
+Styles for the print window
+ */
+
+/**
+ * Styles intended for use by content writers.
+ */
+.pmb-float-top{
+    float:top;
+}
+.pmb-float-bottom{
+    float:bottom;
+}
+.pmb-float-top-page{
+    -prince-float:top page;
+}
+.pmb-float-bottom-page{
+    -prince-float:bottom page;
+}
+.pmb-snap{
+    -prince-float:snap;
+    -prince-float-policy:in-order;
+}
+
+/**
+ * Styles used internally
+ */
+@media not print{
+    .pmb-pro-print-window{
+        border:1px solid lightgray;
+        border-radius: 5px;
+        margin:5px;
+        padding-bottom:10px;
+        font-family:arial;
+        font-size:14px;
+    }
+    .pmb-pro-print-window-topbar{
+        display:flex;
+        justify-content:space-evenly;
+        padding-top: 5px;
+        padding-bottom:10px;
+        border-bottom:1px solid lightgray;
+    }
+    .pmb-pro-window-topbar-left{
+        text-align:left;
+    }
+    .pmb-pro-window-title{
+        flex-grow:1;
+        text-align:center;
+    }
+    .pmb-pro-window-title h1{
+        margin-top:0;
+        color:gray;
+    }
+    .pmb-pro-window-topbar-right{
+        text-align:right;
+    }
+    .pmb-pro-window-button{
+        border:1px solid lightgray;
+        background-color:white;
+        padding:5px;
+        border-radius:2px;
+        color: black;
+        text-decoration: none;
+        vertical-align: middle;
+        font-size: 18px;
+        margin:0;
+        cursor:pointer;
+    }
+    .pmb-pro-print-window-content{
+        padding-top:10px;
+    }
+    .pmb-pro-print-window-options{
+        display:flex;
+        justify-content:space-evenly;
+        flex-wrap:wrap;
+    }
+    .pmb-pro-print-window-options .pmb-print-option{
+        border:1px solid gray;
+        border-radius:5px;
+        padding:5px;
+        text-align:center;
+        width:400px;
+        flex-grow:1;
+    }
+    .pmb-print-option.pmb-constrained{
+        max-width:600px;
+    }
+    .pmb-pro-print-window-options .pmb-print-option.pmb-big-option{
+        flex-grow:2;
+    }
+    .pmb-highlight{
+        background-color:lightgoldenrodyellow;
+    }
+    .pmb-pro-print-window-options .pmb-print-option h2{
+        text-align:center;
+        margin-top:5px;
+    }
+    .pmb-pro-print-window-options .pmb-print-option ul{
+        width:300px;
+        margin-left:auto;
+        margin-right:auto;
+        text-align:left;
+    }
+    .pmb-pro-after-pro{
+        display:none;
+        margin-bottom:20px;
+    }
+    .pmb-project-content{
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+@media print{
+    .pmb-pro-print-window-wrapper{
+        display:none;
+    }
+}
+
+.pmb-warning{
+    border:2px solid orange;
+    padding:1em;
+    margin:1em;
+    color:orangered;
+}
+
+/**
+ * Styles for the document itself
+ */
+
+
+/* Browsers basically have this set as the default, but not Prince*/
+figure{
+    margin-bottom:1em;
+}
+/* Don't let images be taller than the page */
+img, div.wp-caption{
+    max-height:100vh;
+}
+
+.alignleft{
+    float:left;
+    margin-right:1em;
+}
+.alignright{
+    float:right;
+    margin-left:1em;
+}
+.aligncenter{
+    margin-left:auto;
+    margin-right:auto;
+}
+.has-text-align-center{
+    text-align:center;
+}
+
+/* Featured images should be a block so they can be centered */
+.pmb-featured-image{
+    display:block;
+}
+
+/* Make captions line up nicely with floated images. Yes a design may want to override these */
+.wp-block-image figure {
+    display: table;
+    page-break-inside:avoid;
+}
+
+.wp-block-image figure > figcaption {
+    display: table-caption;
+    caption-side: bottom;
+}
+
+/* Make image captions look a bit different*/
+figcaption{
+    color: #555;
+    text-align:center;
+    font-style:italic;
+    margin-top:0.5em;
+}
+
+pre{
+    white-space:pre-wrap;
+    word-wrap:break-word;
+}
+
+/* Column blocks*/
+.wp-block-columns{
+    page-break-inside:avoid;
+}
+.wp-block-columns>.wp-block-column{
+    display:inline-block;
+    vertical-align:top;
+}
+.wp-block-columns.has-2-columns>.wp-block-column{
+    /*width:49vw;*/
+    width:80mm;
+}
+.wp-block-columns.has-3-columns>.wp-block-column{
+    /*width:32vw;*/
+    width:50mm;
+}
+.wp-block-columns.has-4-columns>.wp-block-column{
+    /*width:24vw;*/
+    width:40mm;
+}
+
+/*!* Block galleries *!*/
+
+/**
+Prevent galleries that are too big from spilling into the bottom margin.
+ */
+.wp-block-gallery, .wp-block-jetpack-tiled-gallery{
+    max-height:100vh;
+    overflow:hidden;
+}
+/* Make the figures inside block galleries inline blocks instead of flex items
+otherwise Prince allots them no height and they overflow into content beneath. */
+.wp-block-gallery .blocks-gallery-item figure{
+    display: inline-block;
+    margin:auto; /* Override block CSS setting it to 0 which un-centers them. */
+}
+
+/**
+ Makes sure gallery images don't overflow their cell
+ */
+.blocks-gallery-grid .blocks-gallery-item figure, .wp-block-gallery .blocks-gallery-item figure{
+    max-width:100%;
+}
+
+/* Centered content styles */
+.pmb-center-content .post-inner{
+    height:100vh;
+    /*border:1px solid red;*/
+    position:relative;
+}
+
+.pmb-center-content .post-content{
+    margin:0;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    /*border: 1px dotted green;*/
+    width:100%;
+}
+
+/* Remove accessibility divs which add extra pages (sorry they're not usable when printed anyway)*/
+.a11y-speak-intro-text, .a11y-speak-region{
+    display:none !important;
+}
+
+/**
+We dynamically change all "script" tags to the non-standard "disabled-script" tag when sending to DocRaptor.
+Don't show them, of course.
+ */
+prince-script{
+    display:none;
+}
+
+/**
+* Most designs don't want a pagebreak inside a header
+ */
+.entry-header{
+    page-break-after:avoid;
+    page-break-inside:avoid;
+}
