@@ -7,7 +7,7 @@ Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://printmy.blog/pricing/
-Stable tag: 3.27.4
+Stable tag: 3.27.5
 
 Make printing your blog easy and impressive. For you & your visitors. One post or thousands.
 
@@ -458,6 +458,13 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 8. Pro Print digital PDF using Buurma Whitepaper design. The design adds a background color with a gradient, and a custom logo behind the page number. Designers can use the full power of HTML and CSS in their PDF designs!
 
 == Changelog ==
+
+= 3.27.5 December 18, 2024 =
+* Feature: for Pro Print, introduce "pmb-wide" CSS class, which is just like "mayer-wide" but applies to other designs too.
+* Enhancement: for Pro Print, set a larger maximum size for images before resizing them
+* Bugfix: for Pro Print, avoid error on Edit Content step by checking for negative index
+* Compatibility: avoid overwriting jQuery UI styles
+
 = 3.27.4 October 19, 2024 =
 * Compatibility: for Pro Print, fix Javascript error sometimes occuring with Hustle plugin
 
