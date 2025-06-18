@@ -362,6 +362,7 @@ class Admin extends BaseController {
                 $settings->setShowButtons( isset( $_POST['pmb_show_buttons'] ) );
                 $settings->setShowButtonsPages( isset( $_POST['pmb_show_buttons_pages'] ) );
                 $settings->setPlaceAbove( Array2::setOr( $_POST, 'pmb_place_above', 1 ) );
+                $settings->setOpenNewTab( isset( $_POST['pmb_open_new_tab'] ) );
                 foreach ( $settings->formatSlugs() as $slug ) {
                     if ( isset( $_POST['pmb_format'][$slug] ) ) {
                         $active = true;
@@ -1636,7 +1637,7 @@ class Admin extends BaseController {
                     ]
                 });
             </script>
-            <?php 
+        <?php 
         }
     }
 
@@ -1851,11 +1852,11 @@ class Admin extends BaseController {
             ?>"><?php 
             echo $text;
             ?></a>
-                <?php 
+            <?php 
         }
         ?>
         </div>
-        <?php 
+<?php 
     }
 
     /**
