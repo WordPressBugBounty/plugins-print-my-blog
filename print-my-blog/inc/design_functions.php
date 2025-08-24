@@ -154,7 +154,7 @@ function pmb_design_styles(  \PrintMyBlog\orm\entities\Design $design  ) {
     // instruct PMB print service to add "powered by" for free users and cheap plans
     $show_powered_by = true;
     if ( $design->getSetting( 'powered_by' ) || $show_powered_by ) {
-        $css .= "@page:first{\n            @bottom{\n                content:'" . wp_strip_all_tags( __( 'Powered by Print My Blog Pro & WordPress', 'print-my-blog' ) ) . "';\n                color:gray;\n                font-style:italic;\n            }\n        }";
+        $css .= "@page:first{\r\n            @bottom{\r\n                content:'" . wp_strip_all_tags( __( 'Powered by Print My Blog Pro & WordPress', 'print-my-blog' ) ) . "';\r\n                color:gray;\r\n                font-style:italic;\r\n            }\r\n        }";
     }
     return $css;
 }
