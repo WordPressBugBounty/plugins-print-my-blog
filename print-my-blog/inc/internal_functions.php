@@ -289,7 +289,7 @@ function pmb_content_item(  $posty_row, Project $project, $max_nesting = null  )
                                     class="dashicons dashicons-edit pmb-icon pmb-clickable"></span></a><?php 
     if ( $post_type->name !== CustomPostTypes::CONTENT ) {
         ?><span tabindex="0" class="dashicons dashicons-update pmb-icon pmb-disabled-icon" title="<?php 
-        echo esc_attr( esc_html__( 'Upgrade to Professional License for one-click copying to Print Materials for customization.', 'print-my-blog' ) );
+        esc_attr_e( 'Upgrade to Professional License for one-click copying to Print Materials for customization.', 'print-my-blog' );
         ?>"></span>
                                 <?php 
     }
