@@ -7,7 +7,7 @@ Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://printmy.blog/pricing/
-Stable tag: 3.27.14
+Stable tag: 3.27.15
 
 Make printing your blog easy and impressive. For you & your visitors. One post or thousands.
 
@@ -461,6 +461,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 8. Pro Print digital PDF using Buurma Whitepaper design. The design adds a background color with a gradient, and a custom logo behind the page number. Designers can use the full power of HTML and CSS in their PDF designs!
 
 == Changelog ==
+= 3.27.15 April 4, 2026 =
+* Bugfix: Improved CSS rules for rendering images in the ePub design. 
+* Enhancement: Added a Design Development helper function for adding featured image thumbnails to TOC.
+
 = 3.27.14 March 19, 2026 =
 * Enhancement: Updated Freemius to version 2.13.0.
 
